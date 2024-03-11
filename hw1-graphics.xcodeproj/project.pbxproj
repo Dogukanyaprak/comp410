@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		F69CDADE2B98795C00097AEA /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F69CDADD2B98795C00097AEA /* main.cpp */; };
+		F69CDAE62B98798200097AEA /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F69CDAE52B98798200097AEA /* OpenGL.framework */; };
+		F69CDAE82B98798B00097AEA /* libglfw.3.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F69CDAE72B98798B00097AEA /* libglfw.3.3.dylib */; };
+		F69CDAED2B98944E00097AEA /* InitShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F69CDAEC2B98944E00097AEA /* InitShader.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +28,13 @@
 /* Begin PBXFileReference section */
 		F69CDADA2B98795C00097AEA /* hw1-graphics */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "hw1-graphics"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F69CDADD2B98795C00097AEA /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		F69CDAE52B98798200097AEA /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		F69CDAE72B98798B00097AEA /* libglfw.3.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.3.dylib; path = ../../../../opt/homebrew/Cellar/glfw/3.3.9/lib/libglfw.3.3.dylib; sourceTree = "<group>"; };
+		F69CDAE92B987A3900097AEA /* hw1-graphics.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "hw1-graphics.entitlements"; sourceTree = "<group>"; };
+		F69CDAEC2B98944E00097AEA /* InitShader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InitShader.cpp; sourceTree = "<group>"; };
+		F69CDAF02B98971000097AEA /* fshader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fshader.glsl; sourceTree = "<group>"; };
+		F69CDAF12B98971D00097AEA /* vshader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vshader.glsl; sourceTree = "<group>"; };
+		F69CDAF22B989CD600097AEA /* hw1-graphics */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "hw1-graphics"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +42,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F69CDAE82B98798B00097AEA /* libglfw.3.3.dylib in Frameworks */,
+				F69CDAE62B98798200097AEA /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,6 +55,7 @@
 			children = (
 				F69CDADC2B98795C00097AEA /* hw1-graphics */,
 				F69CDADB2B98795C00097AEA /* Products */,
+				F69CDAE42B98798200097AEA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,9 +70,23 @@
 		F69CDADC2B98795C00097AEA /* hw1-graphics */ = {
 			isa = PBXGroup;
 			children = (
+				F69CDAF22B989CD600097AEA /* hw1-graphics */,
+				F69CDAF12B98971D00097AEA /* vshader.glsl */,
+				F69CDAF02B98971000097AEA /* fshader.glsl */,
+				F69CDAEC2B98944E00097AEA /* InitShader.cpp */,
+				F69CDAE92B987A3900097AEA /* hw1-graphics.entitlements */,
 				F69CDADD2B98795C00097AEA /* main.cpp */,
 			);
 			path = "hw1-graphics";
+			sourceTree = "<group>";
+		};
+		F69CDAE42B98798200097AEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F69CDAE72B98798B00097AEA /* libglfw.3.3.dylib */,
+				F69CDAE52B98798200097AEA /* OpenGL.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -119,6 +146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F69CDAED2B98944E00097AEA /* InitShader.cpp in Sources */,
 				F69CDADE2B98795C00097AEA /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -244,16 +272,40 @@
 		F69CDAE22B98795C00097AEA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "hw1-graphics/hw1-graphics.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GCC_WARN_INHIBIT_ALL_WARNINGS = YES;
+				HEADER_SEARCH_PATHS = /Users/dogukanyaprak/Desktop/comp410/hws/hw0/include;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/homebrew/Cellar/glfw/3.3.9/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SYSTEM_HEADER_SEARCH_PATHS = (
+					/opt/homebrew/Cellar/glfw/3.3.9/include,
+					/Users/dogukanyaprak/Desktop/comp410/hws/hw0/include,
+				);
 			};
 			name = Debug;
 		};
 		F69CDAE32B98795C00097AEA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "hw1-graphics/hw1-graphics.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GCC_WARN_INHIBIT_ALL_WARNINGS = YES;
+				HEADER_SEARCH_PATHS = /Users/dogukanyaprak/Desktop/comp410/hws/hw0/include;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/homebrew/Cellar/glfw/3.3.9/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SYSTEM_HEADER_SEARCH_PATHS = (
+					/opt/homebrew/Cellar/glfw/3.3.9/include,
+					/Users/dogukanyaprak/Desktop/comp410/hws/hw0/include,
+				);
 			};
 			name = Release;
 		};
