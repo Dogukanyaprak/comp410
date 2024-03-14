@@ -34,7 +34,7 @@
 		F69CDAEC2B98944E00097AEA /* InitShader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InitShader.cpp; sourceTree = "<group>"; };
 		F69CDAF02B98971000097AEA /* fshader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fshader.glsl; sourceTree = "<group>"; };
 		F69CDAF12B98971D00097AEA /* vshader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vshader.glsl; sourceTree = "<group>"; };
-		F69CDAF22B989CD600097AEA /* hw1-graphics */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "hw1-graphics"; sourceTree = "<group>"; };
+		F69CDAF22B989CD600097AEA /* hw1-graphics */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "hw1-graphics"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
